@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js (or any component)
+import React from 'react';
+import Button from './components/Button';
+import { useTheme } from './theme/themeContext';
 
-function App() {
+const App = () => {
+  const { colors, toggleTheme } = useTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className="bg-background text-text min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-4xl mb-4">Hello, world!</h1>
+          <p style={{ color: colors.text, background: colors.background }}>This is styled text.</p>
+          <Button onClick={toggleTheme} label={"Toggle Theme"} />
+        </div>
+      </div>
+      <div>
+        <p>THis is glbal</p>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
