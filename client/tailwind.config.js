@@ -1,7 +1,10 @@
+
 // tailwind.config.js
 module.exports = {
   content: [
     "./src/**/*.{js,jsx,ts,tsx}",
+    "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/pages/**/*.{js,jsx,ts,tsx}"
   ],
   plugins: [
     require('tailwindcss'),
@@ -9,14 +12,23 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: '#0070f3',
-        secondary: '#1a1a1a',
-        background: '#ffffff',
-        text: '#333333',
-        dark: '#1a1a1a',
-        darkBackground: '#1a1a1a',
-        darkText: '#ffffff',
+      colors: theme => ({
+        primary: theme.colors.primary,
+        secondary: theme.colors.secondary,
+        background: theme.colors.background,
+        text: theme.colors.text
+      }),
+      boxShadow: {
+        '2xl': theme => `0 25px 50px -12px ${theme('colors.secondary')}`
+      },
+      boxShadow: {
+
+      },
+      height: {
+        '128': '36rem',
+      },
+      width: {
+        '128': '36rem',
       },
       fontFamily: {
         main: ['Helvetica', 'Arial', 'sans-serif'],

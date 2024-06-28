@@ -5,24 +5,31 @@ const ThemeContext = createContext();
 export const useTheme = () => useContext(ThemeContext);
 
 export const ThemeProvider = ({ children }) => {
-    const [darkMode, setDarkMode] = useState(false);
+    const [appTheme, setAppTheme] = useState("boy");
 
     const toggleTheme = () => {
-        setDarkMode(prevMode => !prevMode);
+        setAppTheme(prevTheme => (prevTheme === "boy" ? "girl" : "boy"));
     };
 
+    const themes = {
+        boy: {
+            primary: '#FF5F00',
+            secondary: '#002379',
+            background: '#FF9F66',
+            text: '#ffff',
+        },
+        girl: {
+            primary: '#FD367E',
+            secondary: '#4C0033',
+            background: '#FF69B4',
+            text: '#ffff',
+        }
+    }
+
     const theme = {
-        colors: darkMode
-            ? {
-                background: '#1a1a1a',
-                text: '#ffffff',
-            }
-            : {
-                background: '#ffffff',
-                text: '#333333',
-            },
+        colors: themes[appTheme],
         fonts: {
-            main: 'Helvetica, Arial, sans-serif',
+            main: 'Roboto, sans-serif',
             code: 'Courier, monospace',
         },
         spacing: {
@@ -42,8 +49,7 @@ export const ThemeProvider = ({ children }) => {
     };
 
     return (
-        <ThemeContext.Provider value={theme}>
-
+        <ThemeContext.Provider value={{ theme, setAppTheme }}>
             {children}
         </ThemeContext.Provider>
     );
