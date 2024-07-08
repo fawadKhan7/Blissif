@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
-import { useTheme } from './theme/themeContext';
+import { useTheme } from './context/themeContext';
+
 
 const GlobalStyle = createGlobalStyle`
  @tailwind base;

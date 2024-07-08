@@ -2,7 +2,7 @@ import React from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import styled from 'styled-components';
-import { useTheme } from '../theme/themeContext';
+import { useTheme } from '../context/themeContext';
 
 const ToastComponent = styled(ToastContainer)`
 .Toastify__toast {

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useTheme } from '../theme/themeContext';
+import { useTheme } from '../context/themeContext';
 
 const ButtonComponent = styled.button`
   background: ${({ theme }) => theme.colors.primary};

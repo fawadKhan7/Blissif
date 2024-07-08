@@ -1,10 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { notify } from '../components/BlissifyToast';
 import { Button } from '../components/Button';
 import { InputField } from '../components/InputFields';
 import RadioButton from '../components/RadioInput';
-import { useTheme } from '../theme/themeContext';
-import { useNavigate } from 'react-router-dom';
+import { useTheme } from '../context/themeContext';
 
 const Auth = () => {
     const { theme, setAppTheme } = useTheme();

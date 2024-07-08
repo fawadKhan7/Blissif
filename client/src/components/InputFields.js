@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useTheme } from "../theme/themeContext";
+import { useTheme } from "../context/themeContext";
 
 const InputComponent = styled.input`
   padding: ${({ theme }) => theme.spacing.sm};
@@ -28,15 +28,15 @@ const InputLabel = styled.label`
 `;
 
 export const InputField = ({ label, name, value, placeholder, required = false, style, type = 'text', onChange }) => {
-    // const theme = useTheme();
-    const { theme } = useTheme();
+  // const theme = useTheme();
+  const { theme } = useTheme();
 
 
-    return (
-        <div className="flex flex-col">
-            {label && <InputLabel theme={theme}>{label}</InputLabel>}
-            <InputComponent style={style} theme={theme} placeholder={placeholder || ''} required={required} name={name} value={value} type={type}
-                onChange={onChange} />
-        </div>
-    );
+  return (
+    <div className="flex flex-col">
+      {label && <InputLabel theme={theme}>{label}</InputLabel>}
+      <InputComponent style={style} theme={theme} placeholder={placeholder || ''} required={required} name={name} value={value} type={type}
+        onChange={onChange} />
+    </div>
+  );
 };
