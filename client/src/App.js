@@ -1,14 +1,13 @@
-// App.js (or any component)
 import React from 'react';
-import { Auth } from './pages/auth';
-import { useTheme } from './theme/themeContext';
+import BlissifyToast from './components/BlissifyToast';
+import AppRoutes from './components/router/AppRoutes';
 
 const App = () => {
-  const { colors, toggleTheme } = useTheme();
 
   return (
     <>
-      <Auth />
+      <AppRoutes />
+      <BlissifyToast />
     </>
   );
 };

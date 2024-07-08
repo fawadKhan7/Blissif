@@ -1,13 +1,16 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { notify } from '../components/BlissifyToast';
 import { Button } from '../components/Button';
 import { InputField } from '../components/InputFields';
 import RadioButton from '../components/RadioInput';
 import { useTheme } from '../theme/themeContext';
+import { useNavigate } from 'react-router-dom';
 
-export const Auth = () => {
+const Auth = () => {
     const { theme, setAppTheme } = useTheme();
     const { colors } = theme
     const [isReg, setIsReg] = useState(false);
+    const navigate = useNavigate()
     const [loginData, setLoginData] = useState({
         email: "",
         password: ""
@@ -27,23 +30,27 @@ export const Auth = () => {
     const registerSubmit = useCallback((e) => {
         e.preventDefault();
         console.log(registerData);
+        notify("Registeration Successfull")
+        navigate("/")
     }, [registerData]);
 
     const loginSubmit = useCallback((e) => {
         e.preventDefault();
         console.log(loginData);
+        notify("Login Successfull")
+        navigate("/")
     }, [loginData]);
 
 
     useEffect(() => {
         setAppTheme(gender || "boy");
-    }, [gender]);
+    }, [gender, setAppTheme]);
 
     return (
         <div className={`flex items-center justify-between m-auto h-screen p-10 `} style={{ backgroundColor: colors.primary }}>
             <div className="h-128 w-[50%] flex flex-col gap-8 justify-center items-center">
                 <h1 className={`font-extrabold text-8xl`}>Blissify</h1>
-                <h3 className={`font-semibold text-xl tracking-widest`}>Connect, Create, Celebrate: Blissify Your Social Experience!</h3>
+                <h3 className={`font-semibold text-xl tracking-widest text-center`}>Connect, Create, Celebrate: Blissify Your Social Experience!</h3>
             </div>
             {!isReg ? <div className={`flex items-center justify-between m-auto h-full p-10 `} >
                 <form onSubmit={loginSubmit}>
@@ -82,3 +89,5 @@ export const Auth = () => {
         </div>
     );
 };
+
+export default Auth

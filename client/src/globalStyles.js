@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.main};
+    overflow-x:hidden;
   }
 `;
 

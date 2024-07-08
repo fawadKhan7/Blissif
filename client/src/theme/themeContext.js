@@ -29,7 +29,7 @@ export const ThemeProvider = ({ children }) => {
     const theme = {
         colors: themes[appTheme],
         fonts: {
-            main: 'Roboto, sans-serif',
+            main: 'Poppins, sans-serif',
             code: 'Courier, monospace',
         },
         spacing: {
