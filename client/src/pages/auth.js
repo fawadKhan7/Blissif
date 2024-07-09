@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { notify } from '../components/BlissifyToast';
-import { Button } from '../components/Button';
-import { InputField } from '../components/InputFields';
-import RadioButton from '../components/RadioInput';
+import { notify } from '../components/atoms/BlissifyToast';
+import { Button } from '../components/atoms/Button';
+import { InputField } from '../components/atoms/InputFields';
+import RadioButton from '../components/atoms/RadioInput';
 import { useTheme } from '../context/themeContext';
 
 const Auth = () => {
@@ -15,7 +15,7 @@ const Auth = () => {
         email: "",
         password: ""
     });
-    const [gender, setGender] = useState("");
+    const [gender, setGender] = useState("boy");
     const [registerData, setRegisterData] = useState({
         name: "",
         email: "",
@@ -32,14 +32,14 @@ const Auth = () => {
         console.log(registerData);
         notify("Registeration Successfull")
         navigate("/")
-    }, [registerData]);
+    }, [registerData, navigate]);
 
     const loginSubmit = useCallback((e) => {
         e.preventDefault();
         console.log(loginData);
         notify("Login Successfull")
         navigate("/")
-    }, [loginData]);
+    }, [loginData, navigate]);
 
 
     useEffect(() => {

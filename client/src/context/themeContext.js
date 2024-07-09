@@ -11,7 +11,7 @@ export const ThemeProvider = ({ children }) => {
         setAppTheme(prevTheme => (prevTheme === "boy" ? "girl" : "boy"));
     };
 
-    const themes = {
+    const blissifyThemes = {
         boy: {
             primary: '#FF5F00',
             secondary: '#002379',
@@ -27,7 +27,7 @@ export const ThemeProvider = ({ children }) => {
     }
 
     const theme = {
-        colors: themes[appTheme],
+        colors: blissifyThemes[appTheme],
         fonts: {
             main: 'Poppins, sans-serif',
             code: 'Courier, monospace',

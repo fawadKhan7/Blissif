@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { FaBars, FaSearch } from 'react-icons/fa';
+import React from 'react';
+import { FaSearch } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
-import { useTheme } from '../context/themeContext';
-import UserChat from './UserChat';
-import { useSideBar } from '../context/sidebarContext';
+import { useSideBar } from '../../context/sidebarContext';
+import { useTheme } from '../../context/themeContext';
+import UserChat from '../chats/UserChat';
 
 const data = [
   { id: 1, name: "Joe", lastMessage: "Hey", date: "1-1-12" },
@@ -85,14 +85,28 @@ const StyledSearchButton = styled(FaSearch)`
 `;
 
 const UserChatStyledDiv = styled.div`
-padding:0px 0px 25px 0px;
-width:100%;
-height:100%;
-overflow-y: scroll;
- scrollbar-width: none;
-`;
-// scrollbar-width: thin;
-// scrollbar-color: ${({ theme }) => theme.colors.primary} ${({ theme }) => theme.colors.background};
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: ${({ theme }) => theme.colors.primary} ${({ theme }) => theme.colors.background};
+
+  &::-webkit-scrollbar {
+    width: 8px;
+    border-radius: 20px; /* Adjust the border radius as needed */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 20px; /* Match the scrollbar border radius */
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: ${({ theme }) => theme.colors.background};
+    border-radius: 20px; /* Match the scrollbar border radius */
+  }
+`;// scrollbar-width: none;
 
 
 const Sidebar = () => {

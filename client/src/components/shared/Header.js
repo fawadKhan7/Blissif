@@ -1,16 +1,16 @@
 import React from 'react';
 import { FaBars, FaSearch } from 'react-icons/fa';
 import styled from 'styled-components';
-import { useSideBar } from '../context/sidebarContext';
-import { useTheme } from '../context/themeContext';
+import { useSideBar } from '../../context/sidebarContext';
+import { useTheme } from '../../context/themeContext';
 
 const ToggleButton = styled.button`
-position:absolute;
-top:20px;
+position:fixed;
+top:16px;
 left:20px;
   z-index: 1000;
-  background: ${({ theme }) => theme.colors.secondary};
-  color: ${({ theme }) => theme.colors.background};
+  background: ${({ theme }) => theme.colors.background};
+  color: ${({ theme }) => theme.colors.text};
   border: none;
   border-radius: 5px;
   padding: 10px;
@@ -24,20 +24,33 @@ left:20px;
 
 const StyledDiv = styled.header`
   background-color: ${({ theme }) => theme.colors.primary};
+  width:100%;
   padding: 10px 100px;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
+  font-family:${({ theme }) => theme.fonts.main};
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
 `;
 
 const StyledSearchContainer = styled.div`
   position: relative;
-  width: 600px; `;
+  width: 600px; 
+  `
+// const StyledSearchContainer = styled.div`
+//   position: relative;
+//   min-width: 400px; 
+//   max-width: 600px; 
+//   `
 
 const StyledSearch = styled.input`
   border-radius: 20px;
   padding: 10px 40px 10px 20px;
-  width: 100%;
+  width: 90%;
+  margin:0px 50px 0px 10px;
   border: 2px solid transparent;
   transition: all 0.3s ease-in;
   color: ${({ theme }) => theme.colors.primary};
@@ -51,7 +64,7 @@ const StyledSearch = styled.input`
 const StyledSearchButton = styled(FaSearch)`
   position: absolute;
   color: ${({ theme }) => theme.colors.background};
-  right: 20px;
+  right: 12%;
   top: 50%;
   transform: translateY(-50%);
     cursor:pointer;

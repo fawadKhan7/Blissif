@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useTheme } from "../context/themeContext";
+import { useTheme } from "../../context/themeContext";
 
 const InputComponent = styled.input`
   padding: ${({ theme }) => theme.spacing.sm};

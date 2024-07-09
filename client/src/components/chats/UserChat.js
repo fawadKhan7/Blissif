@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTheme } from '../context/themeContext'
+import { useTheme } from '../../context/themeContext'
 
 const StyledDiv = styled.div`
 width:90%;
-border-radius:10px;
+border-radius:20px;
 margin:0 auto;
 padding:5px 5px;
 display:flex;

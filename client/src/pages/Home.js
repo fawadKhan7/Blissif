@@ -1,6 +1,8 @@
 import React from 'react'
-import Header from '../components/Header'
-import Sidebar from '../components/Sidebar'
+import Header from '../components/shared/Header'
+import Sidebar from '../components/shared/Sidebar'
+import { useTheme } from '../context/themeContext'
+import HomeGallery from '../views/HomeGallery'
 
 const Home = () => {
     return (
@@ -9,6 +11,7 @@ const Home = () => {
             <div>
                 <Sidebar />
             </div>
+            <HomeGallery />
         </>
     )
 }

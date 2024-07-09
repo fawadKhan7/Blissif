@@ -1,5 +1,5 @@
 import React from 'react';
-import BlissifyToast from './components/BlissifyToast';
+import BlissifyToast from './components/atoms/BlissifyToast';
 import AppRoutes from './components/router/AppRoutes';
 import { SidebarProvider } from './context/sidebarContext';
 

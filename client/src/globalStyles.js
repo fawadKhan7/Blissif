@@ -9,7 +9,7 @@ const GlobalStyle = createGlobalStyle`
     body {
     margin: 0;
     padding: 0;
-    font-size: 16px; /* Adjust font size as needed */
+    font-size: 16px;
     background: ${({ theme }) => theme.colors.background};
     color: ${({ theme }) => theme.colors.text};
     font-family: ${({ theme }) => theme.fonts.main};

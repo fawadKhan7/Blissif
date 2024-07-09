@@ -5,7 +5,6 @@ import App from './App';
 import { ThemeProvider } from './context/themeContext';
 import GlobalStyle from './globalStyles';
 import "./index.css";
-import { SidebarProvider } from './context/sidebarContext';
 
 ReactDOM.render(
   <React.StrictMode>
