@@ -11,7 +11,7 @@ const dummyData = [
             {
                 username: 'jane_smith',
                 image: 'https://picsum.photos/id/1027/50/50',
-                comment: 'Amazing view!',
+                comment: ' Amazing view!',
                 likes: 15
             },
             {

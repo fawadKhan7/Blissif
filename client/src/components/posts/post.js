@@ -126,7 +126,7 @@ const Post = ({ data }) => {
         <StyledPostInfo theme={theme}>
           <StyledPostLabel>{data.label}</StyledPostLabel>
           <StyledPostDesc>{data.description}</StyledPostDesc>
-          <CommentSection />
+          <CommentSection comments={data.comments} />
         </StyledPostInfo>
       </StyledPostRightDiv>
     </div>
