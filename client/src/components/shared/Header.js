@@ -1,5 +1,5 @@
-import React from 'react';
-import { FaBars, FaSearch } from 'react-icons/fa';
+import React, { useState } from 'react';
+import { FaBars, FaSearch, FaUser } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useSideBar } from '../../context/sidebarContext';
 import { useTheme } from '../../context/themeContext';
@@ -40,11 +40,6 @@ const StyledSearchContainer = styled.div`
   position: relative;
   width: 600px; 
   `
-// const StyledSearchContainer = styled.div`
-//   position: relative;
-//   min-width: 400px; 
-//   max-width: 600px; 
-//   `
 
 const StyledSearch = styled.input`
   border-radius: 20px;
@@ -68,11 +63,28 @@ const StyledSearchButton = styled(FaSearch)`
   top: 50%;
   transform: translateY(-50%);
     cursor:pointer;
+    `;
+
+const StyledUserIcon = styled(FaUser)`
+  color: ${({ theme }) => theme.colors.background};
+    `;
+
+const StyledListItem = styled.li`
+    background-color: ${({ theme }) => theme.colors.primary};
+    border:1px solid white;
+    padding:8px 20px;
+    transition:all 300ms linear;
+    &:hover{
+      background-color: ${({ theme }) => theme.colors.background};
+      cursor:pointer;
+
+  }
 `;
 
 const Header = () => {
   const { theme } = useTheme();
   const { toggleSidebar } = useSideBar()
+  const [isVisible, setIsVisible] = useState(false)
 
   return (
     <>
@@ -86,7 +98,21 @@ const Header = () => {
           <StyledSearch placeholder="Search..." theme={theme} />
           <StyledSearchButton theme={theme} size={20} />
         </StyledSearchContainer>
-        <p>Logout</p>
+        <div class="dropdown">
+          <div style={{ height: '40px', width: '40px', borderRadius: '50%', backgroundColor: "gray", display: 'grid', placeItems: 'center' }}>
+            <StyledUserIcon theme={theme} onClick={() => setIsVisible(true)} onMouseLeave={() => setIsVisible(false)} />
+          </div>
+          <div style={{ position: 'absolute', right: '2%', visibility: isVisible ? 'visible' : 'hidden' }} >
+            <ul onMouseEnter={() => setIsVisible(true)}>
+              <StyledListItem theme={theme} style={{ borderTopLeftRadius: "10px", borderTopRightRadius: "10px", borderBottomColor: 'transparent' }}>
+                <p >Link 1</p>
+              </StyledListItem>
+              <StyledListItem theme={theme} style={{ borderBottomLeftRadius: "10px", borderBottomRightRadius: "10px", }}>
+                <p >Link 2</p>
+              </StyledListItem>
+            </ul>
+          </div>
+        </div>
       </StyledDiv>
     </>
   );

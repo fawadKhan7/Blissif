@@ -5,14 +5,28 @@ import styled from 'styled-components'
 import { useTheme } from '../../context/themeContext'
 import CommentSection from './commentSection'
 
-const StyledPostLeftDiv = styled.div`
-width:55%;
-height:500px;
- background-color:${({ theme }) => theme.colors.primary};
- margin:10px 0;
- border-radius:20px;
- overflow:hidden;
-`
+const ParentDiv = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @media (max-width: 1200px) {
+    flex-direction: column;
+    justify-content: center;
+  }
+`; const StyledPostLeftDiv = styled.div`
+  min-width: 55%;
+  height: 500px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  margin: 10px 0;
+  border-radius: 20px;
+  overflow: hidden;
+
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`;
+
 const PostHeaderDiv = styled.div`
 height:10%;
 display: flex;
@@ -40,7 +54,6 @@ const PostImage = styled.img`
   width: 100%; 
   object-fit: cover;  
   `
-
 const PostFooterDiv = styled.div`
   height:10%;
   display: flex;
@@ -70,15 +83,18 @@ color: black;
   }`
 
 const StyledPostRightDiv = styled.div`
-width:40%;
-height:500px;
- background-color:${({ theme }) => theme.colors.text};
- margin:10px 0;
- border-radius:20px;
- overflow:hidden;
- padding:20px
-`
+  min-width: 40%;
+  height: 500px;
+  background-color: ${({ theme }) => theme.colors.text};
+  margin: 10px 0;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
 
+  @media (max-width: 1200px) {
+    width: 100%;
+  }
+`;
 const StyledPostInfo = styled.div`
  display:flex;
  flex-direction:column;
@@ -98,7 +114,7 @@ const StyledPostDesc = styled.p`
 const Post = ({ data }) => {
   const { theme } = useTheme()
   return (
-    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+    <ParentDiv theme={theme}>
       <StyledPostLeftDiv theme={theme}>
         <PostHeaderDiv theme={theme}>
           <PostHeaderChildDiv>
@@ -129,7 +145,7 @@ const Post = ({ data }) => {
           <CommentSection comments={data.comments} />
         </StyledPostInfo>
       </StyledPostRightDiv>
-    </div>
+    </ParentDiv>
 
   )
 }
